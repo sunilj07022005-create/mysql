@@ -27,7 +27,4 @@ values('ram',79500.50,'digamber_colani','ram12@gmail.com',"7030660282"),
 -- read operation
  select * from curd_operation;
  select id, name, email, from_time, address from curd_operation;
- 
- 
- 
-
+select id, name ,address from curd_operation where salary>50000;
