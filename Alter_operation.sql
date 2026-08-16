@@ -16,8 +16,34 @@ select * from students;
 13	bapni	97	A++	nathnager2	9287085849
 14	sajana	97	A++	nathnager1	9787085880
 */
+-- used to get all informtion about the table 
+desc students;
+describe students;
 
 -- used as adding column 
 alter table students add column standerd varchar(15);
 
-select * from students
+
+-- used for changing or modifying datatype and column name 
+alter table students modify column standerd int;
+
+set sql_safe_updates=0;
+update students set standerd='12';
+
+-- used to add and drop the constraints
+alter table students add column result varchar(15);  -- adding constraint 
+ALTER TABLE students MODIFY COLUMN result VARCHAR(16) NOT NULL;-- adding constraint and the modify size
+alter table students modify column result varchar(16) null;    -- removing the not constraint from not null
+
+-- drop column 
+alter table students drop column result;    -- drop the column 	
+/* remaining command : 
+Rename table
+Add/modify indexes
+Primary key / foreign key changes
+ALTER DATABASE
+ALTER VIEW
+ALTER PROCEDURE
+Common MySQL, PostgreSQL, SQL Server, and Oracle variations*/
+
+select * from students;
