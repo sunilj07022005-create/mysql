@@ -54,7 +54,7 @@ drop database SQL1;  -- it delete whole database
 alter table table_name drop key idx_name;
 alter table table_name drop index idx_name;
 
-alter table table_name drop primary key;
+alter table table_name drop primary key;   -- already see in alter command
 alter table table_name drop foreign key key_name;
 
 drop view view_name;
