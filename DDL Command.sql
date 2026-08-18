@@ -27,13 +27,41 @@ alter table table1 modify name varchar(25) null ;  -- the way1
 alter table table1 modify name varchar(25);    -- the seconde way2 -> can yoou drop at one time in above command 
 
 alter table table1 alter bonus set default 1000;  -- add conttaint 
-alter table table1 alter age drop default;	-- drop constraint 
+alter table table1 alter bonus drop default;	-- drop constraint 
 
--- delete  command 
+-- rename command 
 
+-- rename table name 
+rename table table1 to table2;   -- change table name 
+alter table table2 rename  table1;   -- by this way also 
+
+-- renameing or changing the column name 
+
+alter table table1 rename column mobile_no to mo_no;
+alter table table1 change  name full_name varchar(25);
+show tables;
 
 -- drop command 
+alter table table1 drop column mo_no;  -- drop specific column 
 
+drop table table1l;    -- drop whole table 
+drop table if exists students ;
+
+drop database SQL1;  -- it delete whole database
+-- drop database if exists collage ;
+
+-- later use in upcommining the files 
+alter table table_name drop key idx_name;
+alter table table_name drop index idx_name;
+
+alter table table_name drop primary key;
+alter table table_name drop foreign key key_name;
+
+drop view view_name;
+drop trigger trigger_name;
+drop procedure procedure_name;
+drop function function_name;
+drop event delete_old_data;
 
 
 select *from table1;
