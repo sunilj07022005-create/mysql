@@ -63,5 +63,6 @@ drop procedure procedure_name;
 drop function function_name;
 drop event delete_old_data;
 
-
+use SQL1;
+desc table1;
 select *from table1;
