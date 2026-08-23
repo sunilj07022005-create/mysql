@@ -38,3 +38,5 @@ union
 select students.id, mock1.id ,students.mark , students.grade, students.address, mo_no,mock1.mark from students right join mock1 on students.id = mock1.id;
 
 select s.id, s.name, s.mark, m.id, m.name, m.mark, s.address from students as s cross join mock1.m;
+use db1;
+select * from students cross join mock1;
