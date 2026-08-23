@@ -15,6 +15,8 @@ create table table1( id int , name varchar(20),salary double(10,2),address varch
 -- add colum n and datatype
 alter table table1 add email varchar(20);   -- add column 
 alter table table1 add mono varchar(14), add bonus double(10,2); -- add multipe column a time 
+alter table table1 add age int after name ;   -- add the column at specific location 
+alter table table1 add  column t_id int first;  -- add the column at the first position 
 
 -- change the colum name, dtatype, size, and adding and removing the constraint or other thing which called  column defination 
 alter table table1 rename column mono to mobile_no;
