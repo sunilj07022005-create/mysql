@@ -120,5 +120,3 @@ where marks >=80
     and (ans_sheet_no like 'a%' or ans_sheet_no like 'c%' )
     and  student_id in (1,4,3,6) 
 	order by marks desc, student_name asc limit 3 offset 2;
-
-
