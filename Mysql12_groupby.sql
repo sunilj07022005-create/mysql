@@ -97,17 +97,22 @@ select student_name, sum(marks) from practice group by student_name having sum(m
 select student_name , avg(marks) as avg_marks from practice group by student_name having avg(marks)>(select avg(marks) from practice) ;
 
 -- Find subjects where the highest marks are greater than 85.
-
+select subject, max(marks)as highest_marks from practice group by subject having max(marks)>85;
 
 -- Find subjects where at least two students scored more than 70.
+select subject,count(*)as student_above_70 from practice where marks>70 group by subject having count(*) >= 2;
 
 -- Find students who have scored more than 75 in at least two subjects.
+select subject, count(*) as total_member from practice group by subject having count(*)>2;
 
 -- Find students whose minimum marks are greater than 60.
+select student_name , min(marks)as min_marks from practice where marks>60 group by student_name;
 
 -- Find students whose maximum marks are exactly 90.
+select student_name,max(marks) from practice group by student_name having max(marks)=90;
 
 -- Find subjects where the average marks are higher than 75 and the lowest marks are greater than 60.
+select subject, avg(marks)as avg_marks from practice group by subject having max(marks)>75 and min(marks)<80;
 
 -- Subqueries
 -- Find the student who has the highest total marks.
