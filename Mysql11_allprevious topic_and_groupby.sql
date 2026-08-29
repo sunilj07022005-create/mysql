@@ -100,3 +100,11 @@ select subject_name, student_name , avg(marks) from student_subject  where subje
 -- student name ascending
 -- Skip the first 2 students.
 -- Return only the next 3 students.
+
+SELECT student_name, GROUP_CONCAT(marks)
+FROM student_subject
+GROUP BY marks;
+
+SELECT marks, GROUP_CONCAT(student_name)as concatedstudent
+FROM student_subject
+GROUP BY marks;

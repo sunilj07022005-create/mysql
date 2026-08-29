@@ -98,6 +98,7 @@ select student_name , avg(marks) as avg_marks from practice group by student_nam
 
 -- Find subjects where the highest marks are greater than 85.
 
+
 -- Find subjects where at least two students scored more than 70.
 
 -- Find students who have scored more than 75 in at least two subjects.
