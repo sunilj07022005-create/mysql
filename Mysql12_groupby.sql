@@ -154,20 +154,21 @@ select student_name, round(avg(marks)) as avg_marks from practice group by stude
 from (select round(avg(marks)) as avg_marks from practice group by student_name)as avg_marks);
 
 -- Find all students whose average marks are greater than Amit's average marks.
+select student_name,avg(marks)as avg_marks from practice  group by student_name having avg(marks)>(select avg(marks) from practice where student_name ='amit');
 
 -- Find all students who scored higher than the average marks of all students.
+select student_name, avg(marks) as avg_marks from practice group by student_name having avg(marks)>(select avg(marks) from practice );
 
 -- Find the students who scored the highest marks in Math.
+select student_name,subject  from practice  where subject='math' and marks=(select max(marks) from practice where subject='math' );
 
 -- Find the students who scored higher than the average marks in Science.
+select student_name, avg(marks) as avr_marks from practice where subject ='science' group by student_name having avg(marks)>(select avg(marks)from practice where subject='science');
 
 -- Advanced — Multi-level Aggregation
 -- Find the subject in which the overall average marks are highest.
+select subject, avg(marks) as avg_marks from practice  group by subject order by avg_marks desc limit 1;
 
 -- Find the student who has the largest difference between their highest and lowest marks.
-
--- Find the student whose total marks are closest to the overall average total marks of all students.
-
--- Find the second-highest average-mark student without using LIMIT.
-
--- Find the student(s) who have scored above the average marks in every subject they took.
+select student_name, max(marks) as highest_mark, min(marks) as lowest_marks from practice  group by student_name having max(marks)-min(marks) = (select max(highest_marks - lowest_marks)
+from ( select max(marks) as highest_marks, min(marks) as lowest_marks from practice group by student_name )as t);
