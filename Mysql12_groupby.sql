@@ -116,10 +116,42 @@ select subject, avg(marks)as avg_marks from practice group by subject having max
 
 -- Subqueries
 -- Find the student who has the highest total marks.
+select  student_name, sum(marks)as total_marks 
+	from practice 
+    group by student_name 
+    having sum(marks)=(select max(total_marks) 
+						from ( select sum(marks) as total_marks from practice  group by student_name) as total_marks) ;
+select student_name , sum(marks) from practice group by student_name order by sum(marks) desc limit 1; 
+
 
 -- Find the student who has the highest average marks.
+-- this is not work becaouse the avagge gives outpu  in the pinted values the t cant acccept or process by the another opration 
+-- select student_name, avg(marks) as avg_marks from practice group by student_name 
+-- having avg(marks)= (
+-- 	select max(avg_marks) 
+--     from (
+--     select avg(marks) as avg_marks 
+--     from practice 
+--     group by student_name
+--     )as avg_marks
+-- );
 
--- Find the student who has the lowest average marks.
+
+SELECT student_name, ROUND(AVG(marks), 2) AS avg_marks 
+FROM practice 
+GROUP BY student_name 
+HAVING ROUND(AVG(marks), 2) = (
+    SELECT MAX(avg_marks) 
+    FROM (
+        SELECT ROUND(AVG(marks), 2) AS avg_marks 
+        FROM practice 
+        GROUP BY student_name
+    ) AS avg_marks
+);
+
+-- Find the student who has the lowest average marks.   -- i use the round function to remove the multiple values after point finding avg 
+select student_name, round(avg(marks)) as avg_marks from practice group by student_name having round(avg(marks))=(select min(avg_marks) 
+from (select round(avg(marks)) as avg_marks from practice group by student_name)as avg_marks);
 
 -- Find all students whose average marks are greater than Amit's average marks.
 

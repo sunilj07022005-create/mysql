@@ -224,4 +224,14 @@ SELECT MAKETIME(21, 30, 45);
 
 SELECT LAST_DAY('2026-08-15');
 
+-- 4. NULL-handling functions
+-- These are very important.
 
+-- IFNULL()
+-- COALESCE()
+-- NULLIF()
+
+-- 5. Conditional functions / expressions
+-- IF()
+-- CASE
+-- then join and constraint
