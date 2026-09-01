@@ -267,8 +267,20 @@ select c.first_name, c.last_name, o.category
     where o.category ='electronics' and o.unit_price > 25000;
 
 -- Find the number of orders placed by each customer.
+select c.first_name, c.last_name, count(o.order_id) as order_count
+	from customers as c 
+	inner join orders as o
+	on o.customer_id = c.customer_id 
+    group by c.first_name,c.last_name, c.customer_id,c.customer_id;
 
 -- Find customers who have placed more than 1 order.
+select c.first_name, c.last_name, count(o.order_id) as order_placed
+	from customers as c 
+    inner join orders as o 
+    on  c.customer_id = o.customer_id
+    -- where o.order_status = 'delivered'
+    group by c.customer_id, c.first_name, c.last_name 
+    having count(order_id) >1;
 
 -- Find customers who have placed more than 2 orders.
 
